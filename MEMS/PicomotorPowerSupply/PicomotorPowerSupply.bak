@@ -1,0 +1,243 @@
+EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:DC-DC- ITX0512S
+LIBS:PicomotorPowerSupply-cache
+EELAYER 25 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L BARREL_JACK CON1
+U 1 1 5748F6BB
+P 3150 3500
+F 0 "CON1" H 3150 3750 50  0000 C CNN
+F 1 "BARREL_JACK" H 3150 3300 50  0000 C CNN
+F 2 "HMC:BARREL_JACK_round" H 3150 3500 50  0001 C CNN
+F 3 "" H 3150 3500 50  0000 C CNN
+	1    3150 3500
+	1    0    0    -1  
+$EndComp
+$Comp
+L CONN_01X05 P1
+U 1 1 5748F6D3
+P 6350 3500
+F 0 "P1" H 6350 3800 50  0000 C CNN
+F 1 "CONN_01X05" V 6450 3500 50  0000 C CNN
+F 2 "Connect:SDS-50J" H 6350 3500 50  0001 C CNN
+F 3 "" H 6350 3500 50  0000 C CNN
+	1    6350 3500
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C1
+U 1 1 5748F714
+P 3650 3450
+F 0 "C1" H 3675 3550 50  0000 L CNN
+F 1 "C" H 3675 3350 50  0000 L CNN
+F 2 "Capacitors_ThroughHole:C_Disc_D8_P3.5" H 3688 3300 50  0001 C CNN
+F 3 "" H 3650 3450 50  0000 C CNN
+	1    3650 3450
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C2
+U 1 1 5748F748
+P 5750 3250
+F 0 "C2" H 5775 3350 50  0000 L CNN
+F 1 "C" H 5775 3150 50  0000 L CNN
+F 2 "Capacitors_ThroughHole:C_Disc_D8_P3.5" H 5788 3100 50  0001 C CNN
+F 3 "" H 5750 3250 50  0000 C CNN
+	1    5750 3250
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C3
+U 1 1 5748F76F
+P 5750 3550
+F 0 "C3" H 5775 3650 50  0000 L CNN
+F 1 "C" H 5775 3450 50  0000 L CNN
+F 2 "Capacitors_ThroughHole:C_Disc_D8_P3.5" H 5788 3400 50  0001 C CNN
+F 3 "" H 5750 3550 50  0000 C CNN
+	1    5750 3550
+	1    0    0    -1  
+$EndComp
+$Comp
+L DC-DC-ITX0512S U1
+U 1 1 5748F95C
+P 4650 3450
+F 0 "U1" H 4650 3350 50  0000 C CNN
+F 1 "DC-DC-ITX0512S" H 4650 3550 50  0000 C CNN
+F 2 "HMC:ITX0512S" H 4650 3450 50  0001 C CNN
+F 3 "DOCUMENTATION" H 4650 3450 50  0001 C CNN
+	1    4650 3450
+	1    0    0    -1  
+$EndComp
+NoConn ~ 3450 3500
+NoConn ~ 3900 3500
+NoConn ~ 3900 3600
+NoConn ~ 5400 3600
+NoConn ~ 6150 3400
+Connection ~ 3650 3600
+Wire Wire Line
+	3850 3300 3900 3300
+Wire Wire Line
+	3850 3600 3850 3300
+Connection ~ 3650 3300
+Wire Wire Line
+	3800 3400 3900 3400
+Wire Wire Line
+	3800 3300 3800 3400
+Wire Wire Line
+	3500 3300 3800 3300
+Wire Wire Line
+	3500 3000 3500 3400
+Wire Wire Line
+	3500 3400 3450 3400
+Wire Wire Line
+	3450 3600 3850 3600
+Wire Wire Line
+	5400 3500 5500 3500
+Wire Wire Line
+	5400 3400 5900 3400
+Wire Wire Line
+	5500 3500 5500 3700
+Wire Wire Line
+	5500 3700 6150 3700
+Wire Wire Line
+	5400 3300 5500 3300
+Wire Wire Line
+	5500 3300 5500 3100
+Wire Wire Line
+	5500 3100 6050 3100
+Wire Wire Line
+	3500 3000 6000 3000
+Connection ~ 3500 3300
+Wire Wire Line
+	5900 3400 5900 3300
+Wire Wire Line
+	5900 3300 6150 3300
+Connection ~ 5750 3400
+Connection ~ 5750 3100
+Connection ~ 5750 3700
+Wire Wire Line
+	5600 3400 5600 3850
+Wire Wire Line
+	5600 3850 3800 3850
+Wire Wire Line
+	3800 3850 3800 3600
+Connection ~ 3800 3600
+Connection ~ 5600 3400
+Wire Wire Line
+	6050 3100 6050 3600
+Wire Wire Line
+	6050 3600 6150 3600
+Wire Wire Line
+	6000 3000 6000 3500
+Wire Wire Line
+	6000 3500 6150 3500
+Text Label 4450 3000 0    60   ~ 0
+5v0
+Text Label 5200 3850 0    60   ~ 0
+GND
+Text Label 5850 3700 0    60   ~ 0
+12v0p
+Text Label 6050 3150 0    60   ~ 0
+12v0n
+$Comp
+L GND #PWR1
+U 1 1 574A14D6
+P 5600 3850
+F 0 "#PWR1" H 5600 3600 50  0001 C CNN
+F 1 "GND" H 5600 3700 50  0000 C CNN
+F 2 "" H 5600 3850 50  0000 C CNN
+F 3 "" H 5600 3850 50  0000 C CNN
+	1    5600 3850
+	1    0    0    -1  
+$EndComp
+$Comp
+L CONN_01X01 P2
+U 1 1 574E12FE
+P 1950 2650
+F 0 "P2" H 1950 2750 50  0000 C CNN
+F 1 "CONN_01X01" V 2050 2650 50  0000 C CNN
+F 2 "Mounting_Holes:MountingHole_6-5mm" H 1950 2650 50  0001 C CNN
+F 3 "" H 1950 2650 50  0000 C CNN
+	1    1950 2650
+	1    0    0    -1  
+$EndComp
+$Comp
+L CONN_01X01 P3
+U 1 1 574E133B
+P 2000 3350
+F 0 "P3" H 2000 3450 50  0000 C CNN
+F 1 "CONN_01X01" V 2100 3350 50  0000 C CNN
+F 2 "Mounting_Holes:MountingHole_6-5mm" H 2000 3350 50  0001 C CNN
+F 3 "" H 2000 3350 50  0000 C CNN
+	1    2000 3350
+	1    0    0    -1  
+$EndComp
+$Comp
+L CONN_01X01 P5
+U 1 1 574E1373
+P 2050 4000
+F 0 "P5" H 2050 4100 50  0000 C CNN
+F 1 "CONN_01X01" V 2150 4000 50  0000 C CNN
+F 2 "Mounting_Holes:MountingHole_6-5mm" H 2050 4000 50  0001 C CNN
+F 3 "" H 2050 4000 50  0000 C CNN
+	1    2050 4000
+	1    0    0    -1  
+$EndComp
+$Comp
+L CONN_01X01 P4
+U 1 1 574E13BE
+P 2000 4600
+F 0 "P4" H 2000 4700 50  0000 C CNN
+F 1 "CONN_01X01" V 2100 4600 50  0000 C CNN
+F 2 "Mounting_Holes:MountingHole_6-5mm" H 2000 4600 50  0001 C CNN
+F 3 "" H 2000 4600 50  0000 C CNN
+	1    2000 4600
+	1    0    0    -1  
+$EndComp
+NoConn ~ 1750 2650
+NoConn ~ 1800 3350
+NoConn ~ 1850 4000
+NoConn ~ 1800 4600
+$EndSCHEMATC
