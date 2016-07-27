@@ -1,0 +1,101 @@
+\documentclass[12pt]{report}
+\usepackage{graphicx}
+\usepackage{float}
+\begin{document}
+
+\paragraph{Project:} NanoLab Spin Coater
+\paragraph{Goal:} To create an open documented spin coater with vacuum chuck system capable of spinning chips at up to 5000 RPM for semiconductor manufacturing processes. This means the spinner must pull vacuum through the spindle strong enough to hold down any chip less than 100mm diameter. Also, all parts should be common enough that anyone could take the documentation and build their own.
+
+\paragraph{Engineering Work:} 
+Initially we broke the design-space into two categories - single-seal designs and double-seal designs. Single-seal designs had the motor either around the shaft and vacuum pulled from the bottom, or the motor inside the vacuum with a single seal at the top.
+\begin{figure}[H]
+\includegraphics[scale=0.7]{spincoaterfig1} \, 
+\includegraphics[scale=0.8]{spincoaterfig2}
+\end{figure}
+The double-seal version pulls vacuum out of the side of the spindle through a collar and then has seals both above and below the breach.
+
+Of these three possibilities, we started prototyping the double seal version. Even though this is initially more complex because of the two seals, the other two have problems that make them complicated. The first, with the shaft through the motor, requires that the motor shaft be hollow - this requires a very special motor with a large diameter shaft that could be hard to find. The second, with the motor in the vacuum chamber, requires a large vacuum chamber with an electrical feedthrough for the motor. 
+\subparagraph{First Prototype:} The first design looks very similar to the sketch above. There are small pockets in the side of the spindle to hold O-rings for the seals. There is a hole in the bottom to mount to the motor and a set screw to hold it in place. The collar around the outside has a hole in the side for an NPT hose fitting to pull vacuum.
+\begin{figure}[h]
+\includegraphics{rev1}
+\end{figure}
+All of the parts are made from aluminum stock. To machine the spindle, all lathe operations were done at once without removing the part from the collet. The O-ring pockets were turned down using an 1/8" parting tool. This was significantly wider than one O-ring, but it was simple to make. The collar was drilled to 0.5" and then reamed to 0.505". It is important to ream to ensure a smooth mating surface for the O-rings. \\
+We used a 12V DC motor - for specific details see the attached parts list. The O-rings had a cross section of 0.07" and inner diameter of 0.364", which is size 70-012. We tested nitrile, silicone, and viton. \\
+We also created a rotary encoder with a photo interrupter salvaged from a printer and a laser cut encoding disk of acrylic. The salvaged encoder required a small pull-up resistor and ballast resistor in order to interface with an Arduino. The code and design are attached. \\
+When testing the spindle, we found it was binding frequently. This would cause the RPM to fluctuate a lot and break the motors quickly. The brushes would jam and break easily from all the jolting movement. The motor also drew up to 6 amps at 8 volts because of the drag from the friction on the O-rings. The nitrile O-rings worked the best, but still had a lot of drag. The spindle also got very hot after running for a short time. The spindle got up to 4000 RPM which, while not our original goal, is good enough if we can solve the other issues of the heating, binding, and high current. \\
+All four are caused by the same thing - high friction on the O-rings. We tried putting Teflon O-rings on the spindle, but they were too rigid to stretch and slide into the pockets. As of writing this, we have ordered Teflon-encapsulated viton O-rings, which should have lower friction, but still be flexible enough to fit on the spindle. 
+
+\subparagraph{Second Prototype:} To reduce the friction, we need to use something like Teflon for the dynamic seals. Since they cannot stretch, we designed a new version where they simply slide onto the spindle.
+\begin{figure}[h]
+\includegraphics{rev2}
+\end{figure}
+The spindle now has a bulge in the middle where the vacuum holes are. The O-rings are seated on either side and pressed into its sides. The cap is screwed into the collar to compress the O-rings. The spindle still attaches directly to the motor shaft, which is included in the drawing.  \\
+We considered threading the cap and the inside of the collar so they screwed together, but this would require more advanced machining techniques, and could be unscrewed by the friction from the O-rings. In this design, there are screws holding the cap onto the collar. \\
+In testing, we originally ran into an issue where the spindle was off-center. I machined three new spindles, and all of them failed. We discovered the reason was that while machining the spindles, I took them out of the collet on the lathe to drill the vacuum holes and set screw holes. When I put it back on the lathe, it was not centered any more. In order for the spindles to be centered, they must be machined in this order:
+\begin{enumerate}
+\item face stock
+\item reduce stock diameter
+\item drill and ream motor mounting hole
+\item reduce motor-side diameter
+\item use parting tool to start reducing diameter above the bulge
+\item reduce diameter above the bulge
+\item part off
+\item face to length
+\item drill vacuum feedthrough hole
+\item mill vacuum holes and set screw holes
+\end{enumerate}
+
+This keeps all of the vital operations concentric to the motor mounting hole. It doesn't matter much if the vacuum feedthrough hole is off-center. \\
+This fixed the issue of wobbling spindles, but the cap was still coming unscrewed very easily. This could be due to the bolts being to short to hold it in place, but any length bolt would vibrate loose eventually. These bolts were keeping the tension on the O-rings, so when they vibrated out, the vacuum seal broke and the chip flew off. We could try getting longer bolts by grinding the next size down. Also, the cap didn't seal the vacuum holes from the spindle.
+
+\subparagraph{Third Prototype:} To change the way the force is applied to the Teflon O-rings, we added blocks with springs pushing against the collar and the cap. These blocks also held nitrile O-rings against the inner diameter of the collar to seal it.
+\begin{figure}[h]
+\includegraphics{rev3}
+\end{figure}
+It has the same pockets for nitrile O-rings as from the first prototype. It has similar spindle and collar as the second prototype. The rotary encoder for this design fits below the collar to protect it from the chemicals that are being spun. The photo interrupter attaches to a sheet metal ring that clamps on the collar. The cap is actually just a washer with holes drilled to screw it to the collar.  The springs are thin wave springs with spacers to get the right tension - see the parts list for details. \\
+So far we have run into a few issues with this. The rotary encoder is not working because the photo interrupter cannot get close enough to the disk to read it. This can be fixed by widening the collar at this point. The concentricity is very reliant on the O-rings to seat into the grooves that were cut for them, but they were not cut deep enough. This causes the pusher blocks to be off center, rubbing on the spindle unevenly. Otherwise, initial tests have been positive. It can pull vacuum, although it doesn't sound as though it has completely sealed - this could be the seating issue again. It can spin pretty fast even though it is rubbing. We don't know how fast this is because the encoder isn't working, but it is probably fast enough. The set screw hole is not low enough on the spindle to attach to the motor - it is still hidden by the collar. This could be machining error. I have not had the tools to measure where this error comes from. This hasn't been an issue yet because the spindle stays attached even at top speed.
+
+\paragraph{Motor Control Circuit: } The motor runs on 12V DC, and can pull up to 6 amps, so we needed a circuit to regulate the power. It is based off the design of an LDO.
+\begin{figure}[h]
+\includegraphics[scale=0.7]{circuit}
+\end{figure}
+The differential amplifier doesn't matter much as long as it can handle at least 15 volts and has a gain-bandwidth product faster than you want to update the RPM. The transistor here is an NFET. An NPN would have worked as well, and other transistors would work if we changed the feedback loop. All that matters is how it handles large current. VRef is connected to an Arduino that is running the script for counting RPM from the rotary encoder. It uses a PI control loop to maintain the RPM. The resistors in the feedback path scale the voltage at the motor so that it matches the range of the DAC from the Arduino. The code, circuit diagram, parts list, and PCB layout are attached.\\
+We had some issues with the circuit - the first Op Amp that we used burnt out and the transistor melted the breadboard. We put a heatsink on the transistor, but this is something to watch out for in the future.
+
+\paragraph{Spin Coater Chuck:} Each of these designs has an interchangeable chuck that rests on top of the spindle to hold the chip. The mating system is not completely designed. There is an O-ring in between the spindle and the chuck that gets compressed by the vacuum forces. There is also some kind of set screw or rod to stop the chuck from spinning free from the spindle.
+
+
+\paragraph{Future Developments:} In the future, we should go back and investigate some of the single seal designs. We can also do a few more things on all three of the double seal designs to get them to work better. The first design could use Teflon-encapsulated O-rings instead of either rubber or Teflon. The second could use longer screws to limit their vibrating out. The third needs a few machining adjustments - the bottom section of the collar should be milled wider and the encoding disk needs to be re-cut. We also should redesign it so the next draft will fit the set screw. We need to find a way to attach a containment bowl to the motors to collect all the chemicals that are spun off the chip.
+
+\paragraph{Components List:} \hspace{1cm} \\
+\begin{tabular}{c|c|c}
+Part & Number/Requirements & Supplier\\
+\hline
+Circuit &&\\
+Differential Amplifier & 296-12671-5-ND & Digikey\\
+NMOS Transistor & IRLR2703TRPBFCT-ND & Digikey \\
+Bypass Capacitors & 2 @ 10$\mu$F and 2 @ 0.1$\mu$F & Digikey\\
+Resistors & 12$\Omega$, 10k$\Omega$, and 5k$\Omega$ & Digikey\\
+Power Supply & 12VDC, 5A & Digikey \\
+Microcontroller & DEV-13664 & Sparkfun \\
+\hline
+Rev. 1 & & \\
+Motor & TRS-868SB & Amazon\\
+Nitrile O-rings & O-B012 & Lesker \\
+Stock Aluminum & 3/4" Diameter, 1ft Length & - \\
+Vacuum Fitting & 1/8" NPT to Push-to-connect & - \\
+\hline
+Rev. 2 & & \\
+Teflon O-rings & 0.07" CS, 0.426 ID & -\\
+Stock Aluminum & 2" Diameter, 3/4" Diameter & -\\
+Vacuum Fitting & M5 Push-to-connect fitting & -\\
+\hline
+Rev. 3 & & \\
+Teflon O-rings & 0.07" CS, 0.489 ID & -\\
+Nitrile O-rings & O-B016 & Lesker\\
+Wave Springs & 9714K29 & McMaster\\
+Shims & 0.423" ID, 0.726" OD & McMaster
+\end{tabular}
+
+
+\end{document}
