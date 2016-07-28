@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  27 JUL 2016 13:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  27 JUL 2016 17:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -186,27 +186,27 @@ File: circuit.png Graphic file (type png)
  <use circuit.png>
 Package pdftex.def Info: circuit.png used on input line 60.
 (pdftex.def)             Requested size: 182.68126pt x 176.49818pt.
- [5 <./circuit.png>]
+ [5 <./circuit.png>] [6]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 71.
+(Font)              <12> on input line 75.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 71.
+(Font)              <8> on input line 75.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 71.
- [6] [7] (./SpinCoater.aux) ) 
+(Font)              <6> on input line 75.
+ [7] (./SpinCoater.aux) ) 
 Here is how much of TeX's memory you used:
  1585 strings out of 493117
  22747 string characters out of 6135433
- 85681 words of memory out of 5000000
+ 84681 words of memory out of 5000000
  5050 multiletter control sequences out of 15000+600000
  6683 words of font info for 24 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  37i,7n,23p,1053b,222s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2014/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmr12.pfb>
-Output written on SpinCoater.pdf (7 pages, 191996 bytes).
+</usr/local/texlive/2014/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmmi12.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmr12.pfb>
+Output written on SpinCoater.pdf (7 pages, 193749 bytes).
 PDF statistics:
  74 PDF objects out of 1000 (max. 8388607)
  49 compressed objects within 1 object stream
